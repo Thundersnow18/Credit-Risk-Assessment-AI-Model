@@ -45,7 +45,7 @@ def explain_model(model, X_test):
     shap_values = explainer.shap_values(X_test)
     shap.summary_plot(shap_values, X_test)
 
-# Function to adjust feature weights
+# Function to implement unique feature - custom weights for alternate data
 def adjust_feature_weights(X, custom_weights):
     adjusted_X = X.copy()
     for feature, weight in custom_weights.items():
@@ -53,7 +53,7 @@ def adjust_feature_weights(X, custom_weights):
         adjusted_X.iloc[:, feature_idx] *= weight
     return adjusted_X
 
-# Main function to run the pipeline
+# Main function to run the data pipeline
 def main():
     # Generate sample data
     data = generate_sample_data()
